@@ -25,226 +25,209 @@
         });
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         
         body {
-            font-family: futura-pt, Montserrat, sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            background: #f4f1ec;
-            color: #2c2c2c;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 40px;
-            position: relative;
-        }
-        
-        .deco-border {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 1px solid #2c2c2c;
-            pointer-events: none;
-        }
-        
-        .deco-border::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid #2c2c2c;
+            font-family: 'Space Mono', monospace;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.4;
+            padding: 2vw;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         h1 {
-            font-size: 2.5em;
-            font-weight: 300;
-            letter-spacing: 0.2em;
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
             text-align: center;
-            margin: 0 0 60px 0;
+            margin: 8vh 0 10vh;
             text-transform: uppercase;
         }
         
-        .welcome-text {
-            text-align: center;
-            margin-bottom: 80px;
-            font-size: 1.1em;
-            letter-spacing: 0.1em;
+        h2 {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin: 10vh 0 5vh;
+            border-top: 1px solid #000;
+            padding-top: 2vh;
         }
         
         .download-list {
             list-style: none;
-            padding: 0;
-            display: grid;
-            gap: 60px;
         }
         
         .download-item {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 5vh 0;
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 40px;
-            padding: 30px;
-            background: #fff;
-            border: 1px solid #2c2c2c;
+            gap: 5vw;
         }
         
         .pdf-title {
-            font-size: 1.3em;
+            font-size: 1rem;
             margin: 0;
             font-weight: 400;
-            letter-spacing: 0.1em;
         }
         
         .pdf-description {
-            margin: 15px 0 0;
-            font-weight: 300;
+            margin-top: 1vh;
+            font-size: 0.8rem;
+            opacity: 0.7;
         }
         
         .download-button {
+            font-family: 'Space Mono', monospace;
             background: none;
-            border: 1px solid #2c2c2c;
-            color: #2c2c2c;
-            padding: 15px 30px;
+            border: none;
+            color: #000000;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
-            height: fit-content;
+            font-size: 0.8rem;
+            transition: opacity 0.3s ease;
             align-self: center;
+            position: relative;
+            padding-bottom: 2px;
+        }
+        
+        .download-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #000;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .download-button:hover::after {
+            transform: scaleX(1);
         }
         
         .download-button:hover {
-            background: #2c2c2c;
-            color: #f4f1ec;
+            opacity: 0.7;
         }
         
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 20px auto;
-            }
-            
+        @media (max-width: 600px) {
             .download-item {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
+                gap: 2vh;
             }
             
-            .deco-border::before {
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                bottom: 10px;
+            .download-button {
+                justify-self: start;
             }
             
             h1 {
-                font-size: 2em;
-                margin-bottom: 40px;
+                margin: 5vh 0;
             }
             
-            .welcome-text {
-                margin-bottom: 40px;
+            body {
+                padding: 5vw;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>CATALOG</h1>
-        <h2>sigh if you wanna go faster | cycle 1</h2>
-        <p></p>
+    <h1>CATALOG</h1>
+    
+    <h2>sigh if you wanna go faster | cycle 1</h2>
+    
+    <ul class="download-list">
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">the white lights</h3>
+                <p class="pdf-description">2005-2010</p>
+            </div>
+            <a href="The White Lights.pdf" class="download-button" download>download</a>
+        </li>
         
-        <ul class="download-list">
-            <!-- Replace the href attributes with actual paths to your PDFs -->
-            <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">the white lights</h3>
-                    <p class="pdf-description">2005-2010</p>
-                </div>
-                <a href="The White Lights.pdf" class="download-button" download>Download</a>
-            </li>
-            
-            <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">Norman Crabtree</h3>
-                    <p class="pdf-description">2005-2010 (unfinished)</p>
-                </div>
-                <a href="Norman Crabtree.pdf" class="download-button" download>Download</a>
-            </li>
-             <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">wonk</h3>
-                    <p class="pdf-description">2009-2011</p>
-                </div>
-                <a href="Wonk.pdf" class="download-button" download>Download</a>
-            </li>
-            
-            <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">lyrics of a mild and melancholic man</h3>
-                    <p class="pdf-description">2006-2013</p>
-                </div>
-                <a href="Lyrics Of A Mild And Melancholic Man.pdf" class="download-button" download>Download</a>
-            </li> <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">every time I say I love you, I think of hospitals</h3>
-                    <p class="pdf-description">2011</p>
-                </div>
-                <a href="Every Time I Say I Love You, I Think Of Hospitals .pdf" class="download-button" download>Download</a>
-            </li>
-            
-            <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">eleven</h3>
-                    <p class="pdf-description">2012</p>
-                </div>
-                <a href="Eleven.pdf" class="download-button" download>Download</a>
-            </li> <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">don't flinch</h3>
-                    <p class="pdf-description">2013</p>
-                </div>
-                <a href="Dont Flinch.pdf" class="download-button" download>Download</a>
-            </li>
-        </ul>
-<h2>blossom boy beta test | cycle 2</h2>
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">Norman Crabtree</h3>
+                <p class="pdf-description">2005-2010 (unfinished)</p>
+            </div>
+            <a href="Norman Crabtree.pdf" class="download-button" download>download</a>
+        </li>
+        
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">wonk</h3>
+                <p class="pdf-description">2009-2011</p>
+            </div>
+            <a href="Wonk.pdf" class="download-button" download>download</a>
+        </li>
+        
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">lyrics of a mild and melancholic man</h3>
+                <p class="pdf-description">2006-2013</p>
+            </div>
+            <a href="Lyrics Of A Mild And Melancholic Man.pdf" class="download-button" download>download</a>
+        </li>
+        
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">every time I say I love you, I think of hospitals</h3>
+                <p class="pdf-description">2011</p>
+            </div>
+            <a href="Every Time I Say I Love You, I Think Of Hospitals .pdf" class="download-button" download>download</a>
+        </li>
+        
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">eleven</h3>
+                <p class="pdf-description">2012</p>
+            </div>
+            <a href="Eleven.pdf" class="download-button" download>download</a>
+        </li>
+        
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">don't flinch</h3>
+                <p class="pdf-description">2013</p>
+            </div>
+            <a href="Dont Flinch.pdf" class="download-button" download>download</a>
+        </li>
+    </ul>
 
-        <p></p>
-<ul class="download-list">
-            <!-- Replace the href attributes with actual paths to your PDFs -->
-            <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">Parts 1 & 2 - the book of loops | moorview blues</h3>
-                    <p class="pdf-description">2014-2018</p>
-                </div>
-                <a href="BBBT Parts 1 & 2 - Catalog.pdf" class="download-button" download>Download</a>
-            </li>
+    <h2>blossom boy beta test | cycle 2</h2>
+
+    <ul class="download-list">
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">Parts 1 & 2 - the book of loops | moorview blues</h3>
+                <p class="pdf-description">2014-2018</p>
+            </div>
+            <a href="BBBT Parts 1 & 2 - Catalog.pdf" class="download-button" download>download</a>
+        </li>
 
         <li class="download-item">
-                <div class="pdf-info">
-                    <h3 class="pdf-title">Part 3 - The Book of Ada</h3>
-                    <p class="pdf-description">2022-2025</p>
-                </div>
-                <a href="BBBT Part 3 - The Book Of Ada - Catalog .pdf" class="download-button" download>Download</a>
-            </li>
+            <div class="pdf-info">
+                <h3 class="pdf-title">Part 3 - The Book of Ada</h3>
+                <p class="pdf-description">2022-2025</p>
+            </div>
+            <a href="BBBT Part 3 - The Book Of Ada - Catalog .pdf" class="download-button" download>download</a>
+        </li>
 
-         <li class="download-item">
-    <div class="pdf-info">
-        <h3 class="pdf-title">Part 4 - sherbet</h3>
-        <p class="pdf-description">2022-2025</p>
-    </div>
-    <a href="https://crabtreewented.github.io/sherbet/" class="download-button">Go!</a>
-</li>
-        <p></p>
-        
-    </div>
+        <li class="download-item">
+            <div class="pdf-info">
+                <h3 class="pdf-title">Part 4 - sherbet</h3>
+                <p class="pdf-description">2022-2025</p>
+            </div>
+            <a href="https://crabtreewented.github.io/sherbet/" class="download-button">visit</a>
+        </li>
+    </ul>
 </body>
 </html>
